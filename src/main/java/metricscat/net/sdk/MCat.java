@@ -19,8 +19,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 /**
@@ -86,7 +89,18 @@ public class MCat {
             @Override
             public void run() {
                 String json = smGson.toJson(info);
-                smApi.setDeviceInfo(json);
+                smApi.setDeviceInfo(json,new Callback<Void>() {
+
+                    @Override
+                    public void success(Void arg0, Response arg1) {
+                        Log.d("TAG", "ok");
+                    }
+
+                    @Override
+                    public void failure(RetrofitError arg0) {
+                        Log.d("TAG", "failure");
+                    }
+                });
             }
         });
     }

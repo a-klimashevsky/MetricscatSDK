@@ -1,5 +1,6 @@
 package metricscat.net.sdk;
 
+import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.POST;
 
@@ -9,5 +10,5 @@ import retrofit.http.POST;
 public interface MetricsCatApi {
 
     @POST("/device")
-    public void setDeviceInfo(@Body String info);
+    public void setDeviceInfo(@Body String info, Callback<Void> callback);
 }
