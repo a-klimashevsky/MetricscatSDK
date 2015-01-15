@@ -7,13 +7,13 @@ How to integrate:
 3) add to you Application class
 
 @Override
-    public void onCreate() {
-        super.onCreate();
-        MCat.start(this);
-    }
+public void onCreate() {
+    super.onCreate();
+    MCat.start(this);
+}
     
-        @Override
-    public void onTerminate() {
-        MCat.stop(this);
-        super.onTerminate();
-    }
+@Override
+public void onTerminate() {
+    MCat.stop(this);
+    super.onTerminate();
+}
