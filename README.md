@@ -6,9 +6,10 @@
 
 * add ```<meta-data android:name="mcat_id" android:value="[your partner's id]" /> ``` to AndroidManifest.xml
 
-* add to you Application class
+* update your Application class
 
-```@Override
+```
+@Override
 public void onCreate() {
     super.onCreate();
     MCat.start(this);
