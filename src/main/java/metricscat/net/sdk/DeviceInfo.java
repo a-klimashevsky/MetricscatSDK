@@ -21,6 +21,9 @@ class DeviceInfo {
     public List<PInfo> apps;
     public Locale locale;
 
+    @SerializedName("device_id")
+    public String deviceId;
+
     @SerializedName("time_zone")
     public String timeZone;
 

@@ -74,6 +74,8 @@ public class MCat {
     }
 
     private static void sendDeviceInfo(Context context) {
+        String android_id = Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
         final List<PackageInfo> packs = context.getPackageManager().getInstalledPackages(PackageManager.GET_PERMISSIONS | PackageManager.GET_META_DATA);
         final DeviceInfo info = new DeviceInfo();
         info.setup(packs);
@@ -81,6 +83,7 @@ public class MCat {
         info.manufacturer = Build.MANUFACTURER;
         info.model = Build.MODEL;
         info.product = Build.PRODUCT;
+        info.deviceId = android_id;
         Locale current = context.getResources().getConfiguration().locale;
         info.locale = current;
         TimeZone tz = TimeZone.getDefault();
